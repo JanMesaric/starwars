@@ -12,11 +12,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'DashboardController',
       controllerAs: 'vm'
     })
-    .state('dashboard.details', {
-      url: '/details/:id',
-      templateUrl: './dashboard/dashboard.html',
-      controller: 'DashboardController',
+    .state('details', {
+      url: '/details',
+      templateUrl: './dashboard/dashboard-details.html',
+      controller: 'DashboardDetailsController',
       controllerAs: 'vm',
-      parameters: ['id']
+      params: {data: null, type: null}
     });
 }
