@@ -20,7 +20,8 @@ module.exports = function (config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       conf.path.src('index.spec.js'),
-      conf.path.src('**/*.html')
+      conf.path.src('**/*.html'),
+      'node_modules/angular-ui-router/release/angular-ui-router.js'
     ],
     preprocessors: {
       [conf.path.src('index.spec.js')]: [

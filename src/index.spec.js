@@ -1,12 +1,18 @@
-describe('inner workings', function () {
-  beforeEach(angular.mock.inject((DashboardController, _$scope_) => {
-    timesheet = _Timesheet_;
-    $httpBackend = _$httpBackend_;
-    core = _Core_;
-  }));
+import app from './index'
 
-  it('sshould log', function () {
+describe('testModule module', function() {
+    beforeEach(angular.module('app'));
 
-      expect(0).toEqual(0)
-  });
-})
+    describe('test controller', function() {
+        var scope, testCont;
+
+        beforeEach(inject(function($rootScope, $controller) {
+            scope = $rootScope.$new();
+        }))
+
+    });
+
+    it('should uppercase correctly', function() {
+        expect(0).toEqual(0);
+    });
+});
