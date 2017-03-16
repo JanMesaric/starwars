@@ -1,39 +1,35 @@
-<nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="#">
-    <img alt="Brand" src="assets/logo.png" style="height: 30px; ">
-  </a>
-</nav>
-
-<div class="card" style="width: 20rem; float:left; margin: 10px">
+<div class="card main-card">
   <div class="card-block">
     <h4 class="card-title">Select what you are searching for:</h4>
-    <div class="radio">
-      <label><input type="radio" name="optradio" value="" ng-model="checkbox.people"> People</label>
-    </div>
-    <div class="radio">
-      <label><input type="radio" name="optradio" value="" ng-model="checkbox.movies"> Movies</label>
-    </div>
-    <div ng-if="checkbox.people || checkbox.movies">
-      <br>
-      <input type="text" class="form-control" placeholder="Search for..." ng-model="search.value"><br>
-      <a href="#" class="btn btn-primary">Search</a>
-    </div>
+    <form action="" name="seach-widget" ng-submit="$event.preventDefault(); search(); ">
+      <div class="radio">
+        <label><input type="radio" ng-model="checkbox.val" value="people"> People</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" ng-model="checkbox.val" value="films"> Movies</label>
+      </div>
+      <div ng-if="checkbox.val">
+        <br>
+        <input type="text" class="form-control" placeholder="Search for {{checkbox.val}}..." ng-model="search.val"><br>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+      </div>
+    </form>
   </div>
 </div>
 
-<div class="card" style="margin: 10px">
+<div class="card" style="margin: 10px; min-height: 500px">
   <div class="card-header">
     Search results
   </div>
-  <div style="padding: 10px">
-    Use the form to search for "People" or "Movies"
-  </div>
-  <div class="card-block" ng-repeat="result in results track by $index">
-    <div class="card">
-      <div class="card-block">
-        <h5 class="card-title">Card title</h5>
-        <a href="#" class="btn btn-primary pull-right" style="position: absolute; right: 10px; top: 20px;">Button</a>
-      </div>
+
+  <loader ng-if="isLoading"></loader>
+
+  <div ng-if="!isLoading">
+    <div style="padding: 15px">
+      Use the form to search for "People" or "Movies"
     </div>
+    <div style="padding: 15px" ng-if="checkbox.val && !search.val">Use input to type in search string</div>
+
+    <list-card ng-repeat="result in results track by $index" result="result" type="checkbox.val"></list-card>
   </div>
 </div>

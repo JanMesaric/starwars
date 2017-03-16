@@ -110,3 +110,27 @@ a {
   font-size: 1.5rem;
   margin: 0 0 2rem 0;
 }
+
+button {
+  cursor: pointer;
+}
+
+.see-details {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.main-card {
+  width: 20rem;
+  float:left;
+  margin: 10px
+}
+
+.loader {
+  position:absolute;
+  left: 50%;
+  width:30px;
+  margin-left: -15px;
+  top: 100px;
+}
